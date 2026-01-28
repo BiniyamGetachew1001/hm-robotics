@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+    --color-void: #0B0A04;
+    --color-card: #231E19;
+    --color-cream: #E3C6AC;
+    --color-latte: #D1B196;
+    --color-bronze: #8F664E;
+    --color-coffee: #6F4E37;
+
+    --font-sans: 'Inter', sans-serif;
+    --font-orbitron: 'Orbitron', sans-serif;
+
+    --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+body {
+    background-color: var(--color-void);
+    color: var(--color-latte);
+}
+
+/* Custom scrollbar for that industrial feel */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-void);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-card);
+    border: 1px solid var(--color-coffee);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-coffee);
+}
+
+@utility scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+
+    /* Firefox */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
