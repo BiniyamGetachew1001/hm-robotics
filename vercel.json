@@ -1,0 +1,7 @@
+{
+    "name": "hm-robotics",
+    "framework": "vite",
+    "buildCommand": "npm run build",
+    "installCommand": "pnpm install",
+    "devCommand": "pnpm dev"
+}

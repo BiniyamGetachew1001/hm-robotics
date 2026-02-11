@@ -14,6 +14,9 @@ importers:
       '@splinetool/runtime':
         specifier: 1.9.59
         version: 1.9.59
+      '@supabase/supabase-js':
+        specifier: ^2.93.2
+        version: 2.93.2
       framer-motion:
         specifier: ^12.29.2
         version: 12.29.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -462,6 +465,30 @@ packages:
   '@splinetool/runtime@1.9.59':
     resolution: {integrity: sha512-EX+/4xCMAr22dR7ZgR+HNVc0ZwDO8y9CxlKJMqP2BEUP3oe5RAouTyn5uUHgOEHQ1JQ0VSV8vARfdigQ/hyI7w==, tarball: https://registry.npmjs.org/@splinetool/runtime/-/runtime-1.9.59.tgz}
 
+  '@supabase/auth-js@2.93.2':
+    resolution: {integrity: sha512-uifI5vkhvHCQjn+LUPL5QlsuDMP4oVBD5SiliREgYuTJvCkbPLOcAPGrw88q7VUX9S0J0QuJn+37hrcTITisuw==, tarball: https://registry.npmjs.org/@supabase/auth-js/-/auth-js-2.93.2.tgz}
+    engines: {node: '>=20.0.0'}
+
+  '@supabase/functions-js@2.93.2':
+    resolution: {integrity: sha512-reSp7yj4KmvAFfmN+N7vYsHXOIZQh9cmRBh+VrZlm7qgIIUdYmzKuD85TvFnWApqcdI2pPnuZGKWE/2B4GXT1A==, tarball: https://registry.npmjs.org/@supabase/functions-js/-/functions-js-2.93.2.tgz}
+    engines: {node: '>=20.0.0'}
+
+  '@supabase/postgrest-js@2.93.2':
+    resolution: {integrity: sha512-W2AWDsYwRT217II5yD3jWaX3fJjB7DwyNi2KNi4sphdUI3DKY4fP2XYVDGfeb1clEFL18gw+GBhyQb3BcpNWkw==, tarball: https://registry.npmjs.org/@supabase/postgrest-js/-/postgrest-js-2.93.2.tgz}
+    engines: {node: '>=20.0.0'}
+
+  '@supabase/realtime-js@2.93.2':
+    resolution: {integrity: sha512-YpAmJn7DLbMeYfQilcf3f0DKoY8O8TRbTF2oRpWFzHXTlEA+YWms8fBqM13Mf7RE72ouSNKDYyf5K2pWRSHvFw==, tarball: https://registry.npmjs.org/@supabase/realtime-js/-/realtime-js-2.93.2.tgz}
+    engines: {node: '>=20.0.0'}
+
+  '@supabase/storage-js@2.93.2':
+    resolution: {integrity: sha512-abRSVClfIQn+SqpdqL7S7b3VeyS8270/o0gqmGFtiidb7Lu0COsIV6Mor/mK9xE99KYWzyd37vwYYwv/jaANhw==, tarball: https://registry.npmjs.org/@supabase/storage-js/-/storage-js-2.93.2.tgz}
+    engines: {node: '>=20.0.0'}
+
+  '@supabase/supabase-js@2.93.2':
+    resolution: {integrity: sha512-G3bZZi6rPwXcPtyHLXQTeHKa5ADZ2UW/+hv8YhwZFwngz4TlPnR4+TeO37EwU5+d/reD02qXozOZgz+QHv1Jtg==, tarball: https://registry.npmjs.org/@supabase/supabase-js/-/supabase-js-2.93.2.tgz}
+    engines: {node: '>=20.0.0'}
+
   '@tailwindcss/node@4.1.18':
     resolution: {integrity: sha512-DoR7U1P7iYhw16qJ49fgXUlry1t4CpXeErJHnQ44JgTSKMaZUdf17cfn5mHchfJ4KRBZRFA/Coo+MUF5+gOaCQ==, tarball: https://registry.npmjs.org/@tailwindcss/node/-/node-4.1.18.tgz}
 
@@ -568,6 +595,12 @@ packages:
   '@types/node@22.19.7':
     resolution: {integrity: sha512-MciR4AKGHWl7xwxkBa6xUGxQJ4VBOmPTF7sL+iGzuahOFaO0jHCsuEfS80pan1ef4gWId1oWOweIhrDEYLuaOw==, tarball: https://registry.npmjs.org/@types/node/-/node-22.19.7.tgz}
 
+  '@types/phoenix@1.6.7':
+    resolution: {integrity: sha512-oN9ive//QSBkf19rfDv45M7eZPi0eEXylht2OLEXicu5b4KoQ1OzXIw+xDSGWxSxe1JmepRR/ZH283vsu518/Q==, tarball: https://registry.npmjs.org/@types/phoenix/-/phoenix-1.6.7.tgz}
+
+  '@types/ws@8.18.1':
+    resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==, tarball: https://registry.npmjs.org/@types/ws/-/ws-8.18.1.tgz}
+
   '@vitejs/plugin-react@5.1.2':
     resolution: {integrity: sha512-EcA07pHJouywpzsoTUqNh5NwGayl2PPVEJKUSinGGSxFGYn+shYbqMGBg6FXDqgXum9Ou/ecb+411ssw8HImJQ==, tarball: https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-5.1.2.tgz}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -665,6 +698,10 @@ packages:
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==, tarball: https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz}
+
+  iceberg-js@0.8.1:
+    resolution: {integrity: sha512-1dhVQZXhcHje7798IVM+xoo/1ZdVfzOMIc8/rgVSijRK38EDqOJoGula9N/8ZI5RD8QTxNQtK/Gozpr+qUqRRA==, tarball: https://registry.npmjs.org/iceberg-js/-/iceberg-js-0.8.1.tgz}
+    engines: {node: '>=20.0.0'}
 
   jiti@2.6.1:
     resolution: {integrity: sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==, tarball: https://registry.npmjs.org/jiti/-/jiti-2.6.1.tgz}
@@ -919,6 +956,18 @@ packages:
       tsx:
         optional: true
       yaml:
+        optional: true
+
+  ws@8.19.0:
+    resolution: {integrity: sha512-blAT2mjOEIi0ZzruJfIhb3nps74PRWTCz1IjglWEEpQl5XS/UNama6u2/rjFkDDouqr4L67ry+1aGIALViWjDg==, tarball: https://registry.npmjs.org/ws/-/ws-8.19.0.tgz}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
         optional: true
 
   yallist@3.1.1:
@@ -1231,6 +1280,44 @@ snapshots:
       on-change: 4.0.2
       semver-compare: 1.0.0
 
+  '@supabase/auth-js@2.93.2':
+    dependencies:
+      tslib: 2.8.1
+
+  '@supabase/functions-js@2.93.2':
+    dependencies:
+      tslib: 2.8.1
+
+  '@supabase/postgrest-js@2.93.2':
+    dependencies:
+      tslib: 2.8.1
+
+  '@supabase/realtime-js@2.93.2':
+    dependencies:
+      '@types/phoenix': 1.6.7
+      '@types/ws': 8.18.1
+      tslib: 2.8.1
+      ws: 8.19.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
+  '@supabase/storage-js@2.93.2':
+    dependencies:
+      iceberg-js: 0.8.1
+      tslib: 2.8.1
+
+  '@supabase/supabase-js@2.93.2':
+    dependencies:
+      '@supabase/auth-js': 2.93.2
+      '@supabase/functions-js': 2.93.2
+      '@supabase/postgrest-js': 2.93.2
+      '@supabase/realtime-js': 2.93.2
+      '@supabase/storage-js': 2.93.2
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   '@tailwindcss/node@4.1.18':
     dependencies:
       '@jridgewell/remapping': 2.3.5
@@ -1326,6 +1413,12 @@ snapshots:
   '@types/node@22.19.7':
     dependencies:
       undici-types: 6.21.0
+
+  '@types/phoenix@1.6.7': {}
+
+  '@types/ws@8.18.1':
+    dependencies:
+      '@types/node': 22.19.7
 
   '@vitejs/plugin-react@5.1.2(vite@6.4.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2))':
     dependencies:
@@ -1429,6 +1522,8 @@ snapshots:
   gensync@1.0.0-beta.2: {}
 
   graceful-fs@4.2.11: {}
+
+  iceberg-js@0.8.1: {}
 
   jiti@2.6.1: {}
 
@@ -1625,5 +1720,7 @@ snapshots:
       fsevents: 2.3.3
       jiti: 2.6.1
       lightningcss: 1.30.2
+
+  ws@8.19.0: {}
 
   yallist@3.1.1: {}

@@ -7,6 +7,9 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Services from './components/Services';
 import Footer from './components/Footer';
+import Admin from './components/Admin';
+import AdminDashboard from './components/AdminDashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 
 // ScrollToTop component to ensure page starts at top on route change
 const ScrollToTop = () => {
@@ -30,6 +33,15 @@ const App: React.FC = () => {
             <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route
+              path="/admin/dashboard"
+              element={
+                <ProtectedRoute>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </main>
         <Footer />
