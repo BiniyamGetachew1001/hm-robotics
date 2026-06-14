@@ -6,31 +6,21 @@ import {
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
+import { useSupabaseCrud } from '../hooks/useSupabaseCrud';
 
 const sectors = ["Industrial", "Defense", "Research", "Medical"];
 
 const AdminDashboard = () => {
     const [tab, setTab] = useState<'projects' | 'services'>('projects');
-    const [items, setItems] = useState<any[]>([]);
-    const [loading, setLoading] = useState(true);
+    const { items, loading, error, fetchData, createRecord, updateRecord, deleteRecord } = useSupabaseCrud<any>(tab);
+    
     const [editingItem, setEditingItem] = useState<any>(null);
     const [isSaving, setIsSaving] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
         fetchData();
-    }, [tab]);
-
-    const fetchData = async () => {
-        setLoading(true);
-        const { data, error } = await supabase
-            .from(tab)
-            .select('*')
-            .order('created_at', { ascending: false });
-
-        if (!error && data) setItems(data);
-        setLoading(false);
-    };
+    }, [tab, fetchData]);
 
     const handleSignOut = async () => {
         await supabase.auth.signOut();
@@ -40,8 +30,7 @@ const AdminDashboard = () => {
 
     const handleDelete = async (id: string | number) => {
         if (!window.confirm('Wipe record from database? This cannot be undone.')) return;
-        const { error } = await supabase.from(tab).delete().eq('id', id);
-        if (!error) fetchData();
+        await deleteRecord('id', id);
     };
 
     const [jsonInput, setJsonInput] = useState('');
@@ -61,34 +50,28 @@ const AdminDashboard = () => {
 
             if (tab === 'projects') {
                 try {
-                    payload.stats = JSON.parse(jsonInput);
+                    payload.stats = JSON.parse(jsonInput); // Assuming stats maps to 'Tech Stack'
                 } catch (err) {
-                    alert("INVALID_JSON: Please check your formatting.");
+                    alert("INVALID_JSON: Please check your tech stack formatting.");
                     setIsSaving(false);
                     return;
                 }
             }
 
-            // Check if ID exists in current items to determine update vs insert
             const exists = items.some(i => i.id === id);
-
-            let query;
+            
+            let res;
             if (exists) {
-                query = supabase.from(tab).update(payload).eq('id', id);
+                res = await updateRecord('id', id, payload);
             } else {
-                // If creating new project, ID might be custom string, so include it
                 if (tab === 'projects') payload.id = id;
-                query = supabase.from(tab).insert([payload]);
+                res = await createRecord(payload);
             }
 
-            const { error } = await query;
-
-            if (error) {
-                console.error("Supabase Error:", error);
-                alert(`DB_ERROR: ${error.message}`);
+            if (res.error) {
+                alert(`DB_ERROR: ${res.error}`);
             } else {
                 setEditingItem(null);
-                fetchData();
             }
         } catch (err: any) {
             console.error("System Error:", err);
@@ -252,15 +235,18 @@ const AdminDashboard = () => {
                                                 </select>
                                             </div>
                                             <div className="md:col-span-2">
-                                                <label className="block text-[10px] font-mono text-bronze uppercase mb-2">IMAGE_SOURCE_URL</label>
-                                                <input type="url" value={editingItem.image} onChange={(e) => setEditingItem({ ...editingItem, image: e.target.value })} className="w-full bg-black/60 border border-coffee/40 text-white p-3 font-mono text-sm" />
+                                                <label className="block text-[10px] font-mono text-bronze uppercase mb-2">IMAGE URL (Source)</label>
+                                                <input type="url" value={editingItem.image} onChange={(e) => setEditingItem({ ...editingItem, image: e.target.value })} className="w-full bg-black/60 border border-coffee/40 text-white p-3 font-mono text-sm focus:border-bronze outline-none" required />
                                             </div>
                                             <div className="md:col-span-2">
-                                                <label className="block text-[10px] font-mono text-bronze uppercase mb-2">TECH_STATS_JSON (Array of {`{ label, value, icon_name }`})</label>
+                                                <label className="block text-[10px] font-mono text-bronze uppercase mb-2">TECH STACK / STATS (JSON Format)</label>
+                                                <div className="mb-2 text-latte/50 text-xs font-sans">
+                                                    Format items like: <code>[{`{"label": "Language", "value": "Python", "icon": "Code"}`}]</code>
+                                                </div>
                                                 <textarea
                                                     value={jsonInput}
                                                     onChange={(e) => setJsonInput(e.target.value)}
-                                                    className="w-full bg-black/60 border border-coffee/40 text-white p-3 font-mono text-xs min-h-[100px]"
+                                                    className="w-full bg-black/60 border border-coffee/40 text-white p-3 font-mono text-xs min-h-[100px] focus:border-bronze outline-none"
                                                 />
                                             </div>
                                         </>

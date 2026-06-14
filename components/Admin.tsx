@@ -16,12 +16,7 @@ const Admin = () => {
         setLoading(true);
         setError(null);
 
-        // DEFAULT CREDENTIALS OVERRIDE
-        if (email === 'admin@hmrobotics.tech' && password === 'admin123') {
-            localStorage.setItem('hm_admin_session', 'active');
-            navigate('/admin/dashboard');
-            return;
-        }
+        // Ensure strict Supabase Authentication. Bypass removed.
 
         const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
